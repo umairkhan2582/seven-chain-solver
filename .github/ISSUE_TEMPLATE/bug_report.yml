@@ -1,5 +1,5 @@
 name: Bug Report
-  about: Report a bug in the Seven Chain Bridge Solver
+  about: Report a bug in the Seven Chain Bridge
   title: "[BUG] "
   labels: ["bug"]
   assignees: []
@@ -19,7 +19,6 @@ name: Bug Report
       id: reproduce
       attributes:
         label: Steps to Reproduce
-        description: Steps to reproduce the bug
         placeholder: |
           1. Configure .env with ...
           2. Run npm run dev
@@ -41,7 +40,6 @@ name: Bug Report
           - Ubuntu 22.04
           - Ubuntu 20.04
           - Debian
-          - Other Linux
           - macOS
           - Windows
       validations:
@@ -57,6 +55,5 @@ name: Bug Report
       id: logs
       attributes:
         label: Relevant Logs
-        description: Paste solver logs here
         render: shell
   
