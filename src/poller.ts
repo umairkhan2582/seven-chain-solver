@@ -85,8 +85,12 @@ export async function fetchOpenIntents(): Promise<BridgeIntent[]> {
       if (await isProfitable(intent)) profitable.push(intent);
     }
 
-    // Sort by net profit descending (fee - estimated gas)
-    profitable.sort((a, b) => b.feeAmount - a.feeAmount);
+    // Sort by fee/amount ratio descending — maximises yield relative to capital deployed
+    profitable.sort((a, b) => {
+      const ratioA = a.grossAmount > 0 ? a.feeAmount / a.grossAmount : 0;
+      const ratioB = b.grossAmount > 0 ? b.feeAmount / b.grossAmount : 0;
+      return ratioB - ratioA;
+    });
 
     logger.debug('Polled open intents', {
       total: all.length,

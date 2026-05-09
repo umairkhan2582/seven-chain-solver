@@ -24,6 +24,8 @@ export interface SolverConfig {
   liquidityReserve: number;
   routes: RouteConfig[];
   rpcUrls: Record<string, string>;
+  /** Override ERC-20 contract addresses for sBNB/sUSDT on Seven Chain */
+  tokenContracts?: Record<string, string>;
   logLevel: string;
   logFormat: 'pretty' | 'json';
 }

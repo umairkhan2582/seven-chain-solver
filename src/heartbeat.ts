@@ -4,6 +4,7 @@ import { config } from './config.js';
 import { logger } from './logger.js';
 import { getBlockNumber as getBnbBlock } from './chains/bnb.js';
 import { getBlockNumber as getSevenBlock } from './chains/seven.js';
+import { getBlockNumber as getEthBlock } from './chains/eth.js';
 
 let wallet: ethers.Wallet | null = null;
 
@@ -19,20 +20,24 @@ async function signHeartbeat(): Promise<string> {
 
 async function sendHeartbeat(): Promise<void> {
   try {
-    const [bnbBlock, sevenBlock, signature] = await Promise.all([
+    const [bnbBlock, sevenBlock, ethBlock, signature] = await Promise.all([
       getBnbBlock(),
       getSevenBlock(),
+      getEthBlock(),
       signHeartbeat(),
     ]);
 
+    const blockHeights: Record<string, number | null> = {
+      BNB:   bnbBlock,
+      SEVEN: sevenBlock,
+      ETH:   ethBlock,
+    };
+
     const body = {
-      solverAddress:  config.solverAddress,
+      solverAddress:   config.solverAddress,
       solverSignature: signature,
       supportedRoutes: config.routes,
-      blockHeights: {
-        BNB:   bnbBlock,
-        SEVEN: sevenBlock,
-      },
+      blockHeights,
     };
 
     const resp = await fetch(`${config.apiUrl}/api/bridge/solver/heartbeat`, {
@@ -42,7 +47,7 @@ async function sendHeartbeat(): Promise<void> {
     });
 
     if (resp.ok) {
-      logger.debug('Heartbeat sent', { bnbBlock, sevenBlock });
+      logger.debug('Heartbeat sent', { blockHeights });
     } else {
       const text = await resp.text();
       logger.warn('Heartbeat rejected', { status: resp.status, body: text });
