@@ -1,0 +1,35 @@
+name: Feature Request
+  about: Suggest a new feature for the solver
+  title: "[FEATURE] "
+  labels: ["enhancement"]
+  assignees: []
+  body:
+    - type: markdown
+      attributes:
+        value: |
+          Thanks for suggesting an improvement!
+    - type: textarea
+      id: feature
+      attributes:
+        label: Feature Description
+        description: A clear description of what you want to happen.
+      validations:
+        required: true
+    - type: textarea
+      id: problem
+      attributes:
+        label: Problem It Solves
+        description: What problem does this address? Why is it valuable for solver operators?
+      validations:
+        required: true
+    - type: textarea
+      id: solution
+      attributes:
+        label: Proposed Solution
+        description: How would you implement it?
+    - type: textarea
+      id: alternatives
+      attributes:
+        label: Alternatives Considered
+        description: Any alternative solutions or workarounds.
+  
