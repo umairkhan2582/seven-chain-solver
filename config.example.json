@@ -22,9 +22,22 @@
       "fromToken": "USDT",
       "toChain": "SEVEN",
       "toToken": "SEVEN"
+    },
+    {
+      "fromChain": "ETH",
+      "fromToken": "ETH",
+      "toChain": "SEVEN",
+      "toToken": "SEVEN"
+    },
+    {
+      "fromChain": "ETH",
+      "fromToken": "USDT",
+      "toChain": "SEVEN",
+      "toToken": "SEVEN"
     }
   ],
   "rpcUrls": {
+    "ETH": "https://ethereum.publicnode.com",
     "BNB": "https://bsc-dataseed.binance.org/",
     "SEVEN": "https://theseven.meme/api/seven-chain/jsonrpc"
   },
