@@ -1,0 +1,33 @@
+{
+  "_comment": "Copy this file to config.json and fill in your values. Never commit config.json.",
+  "apiUrl": "https://theseven.meme",
+  "solverAddress": "0xYOUR_WALLET_ADDRESS",
+  "privateKey": "0xYOUR_PRIVATE_KEY",
+  "solverName": "My Solver Node",
+  "country": "US",
+  "minProfitThreshold": 0.001,
+  "claimTimeoutMs": 170000,
+  "pollIntervalMs": 10000,
+  "heartbeatIntervalMs": 60000,
+  "liquidityReserve": 0.1,
+  "routes": [
+    {
+      "fromChain": "BNB",
+      "fromToken": "BNB",
+      "toChain": "SEVEN",
+      "toToken": "SEVEN"
+    },
+    {
+      "fromChain": "BNB",
+      "fromToken": "USDT",
+      "toChain": "SEVEN",
+      "toToken": "SEVEN"
+    }
+  ],
+  "rpcUrls": {
+    "BNB": "https://bsc-dataseed.binance.org/",
+    "SEVEN": "https://theseven.meme/api/seven-chain/jsonrpc"
+  },
+  "logLevel": "info",
+  "logFormat": "pretty"
+}
