@@ -4,7 +4,7 @@
 
   # 🌉 Seven Chain — Bridge Solver
 
-  ### **🟢 BRIDGE NETWORK IS LIVE — EARN FEES NOW 🟢**
+  ### **🟢 BRIDGE NETWORK IS LIVE — BOTH DIRECTIONS — EARN FEES NOW 🟢**
 
   [![Chain ID](https://img.shields.io/badge/Chain%20ID-70007-22c55e?style=for-the-badge&logo=ethereum)](https://theseven.meme)
   [![Solver Fees](https://img.shields.io/badge/Solver%20Fee-0.3%25%20Per%20Fill-gold?style=for-the-badge)](https://theseven.meme)
@@ -28,7 +28,7 @@
   > Solver slots are **OPEN**. Run a solver node and earn 0.3% on every bridge intent you fill.
   > The earlier you join, the more volume you capture while the network is growing.
 
-  The Seven Chain Bridge is the official cross-chain gateway for [TheSeven.meme](https://theseven.meme). Users bridge USDT, ETH, BNB and other tokens from any EVM chain into Seven Chain — **you fill those intents and collect the fee**.
+  The Seven Chain Bridge is the official cross-chain gateway for [TheSeven.meme](https://theseven.meme). Users bridge tokens between BSC and Seven Chain — in **both directions**. BSC→SEVEN for deposits and SEVEN→BSC for withdrawals. You fill those intents and collect **0.3% per fill** either way.
 
   ---
 
@@ -123,6 +123,18 @@
 
   ## 🔄 HOW IT WORKS
 
+  ### 🔀 Supported Routes
+
+  | From Chain | From Token | To Chain | To Token | Direction |
+  |------------|------------|----------|----------|-----------|
+  | BSC | BNB | Seven Chain | sBNB | BSC → SEVEN |
+  | BSC | USDT | Seven Chain | sUSDT | BSC → SEVEN |
+  | Seven Chain | sUSDT | BSC | USDT | SEVEN → BSC |
+  | Seven Chain | sBNB | BSC | BNB | SEVEN → BSC |
+
+  > Your solver handles all four routes automatically. The config file controls which routes you want to fill.
+
+
   ```
   User submits a bridge intent
             │
@@ -141,7 +153,7 @@
              ▼
   ┌────────────────────────┐
   │  Deliver on dest chain │  ← Execute the transaction on destination
-  │  (Seven Chain)         │
+  │  (BSC or Seven Chain)  │
   └──────────┬─────────────┘
              │
              ▼
@@ -180,10 +192,10 @@
   POLL_INTERVAL_MS=10000
 
   # Which source chains to fill
-  SUPPORTED_CHAINS=ETH,BNB
+  SUPPORTED_CHAINS=ETH,BNB,SEVEN
 
   # Which tokens to accept
-  SUPPORTED_TOKENS=ETH,BNB,USDT
+  SUPPORTED_TOKENS=ETH,BNB,USDT,sBNB,sUSDT
   ```
 
   ---
