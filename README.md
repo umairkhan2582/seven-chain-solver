@@ -7,7 +7,7 @@
   ### **🟢 BRIDGE NETWORK IS LIVE — BOTH DIRECTIONS — EARN FEES NOW 🟢**
 
   [![Chain ID](https://img.shields.io/badge/Chain%20ID-70007-22c55e?style=for-the-badge&logo=ethereum)](https://theseven.meme)
-  [![Solver Fees](https://img.shields.io/badge/Solver%20Fee-0.3%25%20Per%20Fill-gold?style=for-the-badge)](https://theseven.meme)
+  [![Solver Fees](https://img.shields.io/badge/Solver%20Fee-1%25%20Per%20Fill-gold?style=for-the-badge)](https://theseven.meme)
   [![Telegram](https://img.shields.io/badge/Telegram-Join%20Us-2CA5E0?style=for-the-badge&logo=telegram)](https://t.me/thesevenmeme)
   [![Node.js](https://img.shields.io/badge/Node.js-18%2B-green?style=for-the-badge&logo=node.js&logoColor=white)](https://nodejs.org)
   [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)](https://typescriptlang.org)
@@ -25,10 +25,10 @@
 
   > **Seven Chain Bridge launched alongside Mainnet on April 25, 2026.**
   >
-  > Solver slots are **OPEN**. Run a solver node and earn 0.3% on every bridge intent you fill.
+  > Solver slots are **OPEN**. Run a solver node and earn 1% on every bridge intent you fill.
   > The earlier you join, the more volume you capture while the network is growing.
 
-  The Seven Chain Bridge is the official cross-chain gateway for [TheSeven.meme](https://theseven.meme). Users bridge tokens between BSC and Seven Chain — in **both directions**. BSC→SEVEN for deposits and SEVEN→BSC for withdrawals. You fill those intents and collect **0.3% per fill** either way.
+  The Seven Chain Bridge is the official cross-chain gateway for [TheSeven.meme](https://theseven.meme). Users bridge tokens between BSC and Seven Chain — in **both directions**. BSC→SEVEN for deposits and SEVEN→BSC for withdrawals. You fill those intents and collect **1% per fill** either way.
 
   ---
 
@@ -77,20 +77,20 @@
 
   ### 🔷 How You Earn
 
-  Every bridge intent pays a **0.3% solver fee** — credited instantly to your Seven Chain wallet in **sUSDT** after each fill. No lockups. No vesting. Instant.
+  Every bridge intent pays a **1% solver fee** — credited instantly to your Seven Chain wallet in **sUSDT** after each fill. No lockups. No vesting. Instant.
 
   ```
   User submits bridge intent: 10,000 USDT BNB → Seven Chain
   ├── Net to user:   9,970 USDT   (99.7%)
-  └── Your fee:         30 USDT   (0.3%) ← paid to you instantly
+  └── Your fee:         100 USDT  (1%) ← paid to you instantly
   ```
 
   ### 🔷 Earnings Potential by Volume
 
-  | Daily Intents Filled | Avg. Intent Size | Daily Fee (0.3%) | Monthly Earnings |
+  | Daily Intents Filled | Avg. Intent Size | Daily Fee (1%) | Monthly Earnings |
   |---------------------|-----------------|-----------------|-----------------|
-  | 10 intents / day | $1,000 each | **$30 / day** | **~$900 / month** |
-  | 50 intents / day | $1,000 each | **$150 / day** | **~$4,500 / month** |
+  | 10 intents / day | $1,000 each | **$100 / day** | **~$3,000 / month** |
+  | 50 intents / day | $1,000 each | **$500 / day** | **~$15,000 / month** |
   | 20 intents / day | $10,000 each | **$600 / day** | **~$18,000 / month** |
   | 100 intents / day | $10,000 each | **$3,000 / day** | **~$90,000 / month** |
 
