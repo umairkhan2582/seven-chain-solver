@@ -1,38 +1,65 @@
 name: CI
 
-  on:
-    push:
-      branches: [ main ]
-    pull_request:
-      branches: [ main ]
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-  jobs:
-    build:
-      name: Build and Typecheck
-      runs-on: ubuntu-latest
+jobs:
+  build:
+    name: Build & Typecheck
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [20.x, 22.x]
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      strategy:
-        matrix:
-          node-version: [18.x, 20.x, 22.x]
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
 
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
+      - name: Install dependencies
+        run: npm ci
 
-        - name: Use Node.js
-          uses: actions/setup-node@v4
-          with:
-            node-version: ${{ matrix.node-version }}
-            cache: npm
+      - name: TypeScript typecheck
+        run: npx tsc --noEmit
 
-        - name: Install dependencies
-          run: npm ci
+      - name: Build
+        run: npm run build
 
-        - name: TypeScript typecheck
-          run: npx tsc --noEmit
+      - name: Verify dist output
+        run: test -f dist/index.js && echo "Build succeeded"
 
-        - name: Build
-          run: npm run build
+  security:
+    name: Security Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        - name: Verify dist output
-          run: test -f dist/index.js && echo "Build successful"
+      - name: Use Node.js 22.x
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Audit dependencies
+        run: npm audit --audit-level=high
+
+      - name: Check no private keys in source
+        run: |
+          if grep -rE 'privateKey.*0x[0-9a-fA-F]{64}' src/ --include='*.ts' 2>/dev/null; then
+            echo 'Private key found in source!' && exit 1
+          fi
+          echo "No private keys in source — OK"
+
+      - name: Validate config.example.json
+        run: node -e "JSON.parse(require('fs').readFileSync('config.example.json','utf8'))" && echo 'config.example.json valid'
