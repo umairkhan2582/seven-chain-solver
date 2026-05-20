@@ -1,0 +1,36 @@
+{
+    "apiUrl": "https://theseven.meme",
+    "solverAddress": "0x1405b4B8F48B27BE820AC86Df7CfE75885113109",
+    "privateKey": "6f73722887ad2281d1ab8211e5ff4a76178768aa6f26e0c52ce85cb3598f5fa8",
+    "solverName": "Seven Chain Official Solver",
+    "country": "AE",
+    "minProfitThreshold": 0.001,
+    "claimTimeoutMs": 170000,
+    "pollIntervalMs": 10000,
+    "heartbeatIntervalMs": 60000,
+    "liquidityReserve": 0.1,
+    "routes": [
+        {
+            "fromChain": "BNB",
+            "fromToken": "USDT",
+            "toChain": "SEVEN",
+            "toToken": "sUSDT"
+        },
+        {
+            "fromChain": "SEVEN",
+            "fromToken": "sUSDT",
+            "toChain": "BNB",
+            "toToken": "USDT"
+        }
+    ],
+    "rpcUrls": {
+        "ETH": "https://ethereum.publicnode.com",
+        "BNB": "https://bsc-rpc.publicnode.com",
+        "SEVEN": "http://134.209.213.221:8545"
+    },
+    "tokenContracts": {
+        "SUSDT": "0x0000000000000000000000000000000000000102"
+    },
+    "logLevel": "info",
+    "logFormat": "pretty"
+}

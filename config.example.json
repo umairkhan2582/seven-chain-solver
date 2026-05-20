@@ -1,50 +1,27 @@
 {
-  "_comment": "Copy this file to config.json and fill in your values. Never commit config.json.",
-  "apiUrl": "https://theseven.meme",
-  "solverAddress": "0xYOUR_WALLET_ADDRESS",
-  "privateKey": "0xYOUR_PRIVATE_KEY",
-  "solverName": "My Solver Node",
-  "country": "US",
-  "minProfitThreshold": 0.001,
-  "claimTimeoutMs": 170000,
-  "pollIntervalMs": 10000,
-  "heartbeatIntervalMs": 60000,
-  "liquidityReserve": 0.1,
-  "routes": [
-    {
-      "fromChain": "BNB",
-      "fromToken": "BNB",
-      "toChain": "SEVEN",
-      "toToken": "sBNB"
-    },
-    {
-      "fromChain": "BNB",
-      "fromToken": "USDT",
-      "toChain": "SEVEN",
-      "toToken": "sUSDT"
-    },
-    {
-      "fromChain": "ETH",
-      "fromToken": "ETH",
-      "toChain": "SEVEN",
-      "toToken": "sBNB"
-    },
-    {
-      "fromChain": "ETH",
-      "fromToken": "USDT",
-      "toChain": "SEVEN",
-      "toToken": "sUSDT"
-    }
-  ],
-  "rpcUrls": {
-    "ETH": "https://ethereum.publicnode.com",
-    "BNB": "https://bsc-dataseed.binance.org/",
-    "SEVEN": "https://theseven.meme/api/seven-chain/jsonrpc"
+  "sevenChain": {
+    "rpc": "https://theseven.meme/api/seven-chain/jsonrpc",
+    "chainId": 70007,
+    "bridgeContract": "0x41A70A6bE222174D8369A90fE91017E8Fb74606f",
+    "blockTime": 5,
+    "confirmations": 2
   },
-  "tokenContracts": {
-    "SBNB":  "0x0000000000000000000000000000000000000101",
-    "SUSDT": "0x0000000000000000000000000000000000000102"
+  "bnbChain": {
+    "rpc": "https://bsc-dataseed.binance.org/",
+    "chainId": 56,
+    "bridgeEventTopic": "0xBridgeInitiatedTopicHere",
+    "startBlock": "latest"
   },
-  "logLevel": "info",
-  "logFormat": "pretty"
+  "solver": {
+    "privateKey": "YOUR_PRIVATE_KEY_HERE",
+    "pollIntervalMs": 3000,
+    "settlementGasLimit": 300000,
+    "maxGasPrice": "5000000000",
+    "heartbeatIntervalMs": 30000,
+    "logLevel": "info"
+  },
+  "fees": {
+    "autoClaimFees": true,
+    "minFeeToClaimUsdt": 1.0
+  }
 }
