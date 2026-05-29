@@ -4,6 +4,16 @@
 
 ---
 
+## [May 29, 2026] — v2.0.1: Docs & Accuracy Update
+
+Documentation updated across all ecosystem repos to reflect the current state of the network accurately.
+
+- README and UPDATES.md now reflect early-launch validator status
+- All contract addresses verified against live production API
+- Ecosystem links updated across solver, node, and developer hub repos
+
+---
+
 ## [May 20, 2026] — v2.0 Live: Dynamic Pricing + V3 Bridge
 
 Seven Chain Solver v2.0 is now live on mainnet.
@@ -18,22 +28,24 @@ Seven Chain Solver v2.0 is now live on mainnet.
 
 - SEVEN price now moves in real-time with every buy/sell on https://theseven.meme/spot/seven
 - The trade book and chart now show all live trade data — no more "no trades yet" placeholder
-- Validator threshold updated to **9 validators** — one slot still open
+- Validator consensus threshold set to **9 validators**
 
 ---
 
-## [May 2026] — Validator Slot Open
+## [May 2026] — Validator Applications Open
 
-We currently have **8 active validators**. The consensus threshold is **9**.
+Seven Chain is actively growing its validator set. We are in early launch phase — **now is the best time to apply**. Early validators are the genesis set that shapes the network.
 
-If you hold SEVEN tokens and want to become a validator:
+To apply as a validator:
 
-1. Go to https://theseven.meme/staking
-2. Stake your SEVEN
-3. Wait for activation (next epoch)
-4. Your node joins block production
+1. Go to https://theseven.meme/staking — stake your SEVEN tokens
+2. Go to https://theseven.meme/become-validator — register your node
+3. Your node joins block production automatically after activation
 
-New validators receive block rewards from the moment they are activated.
+Validators earn:
+- Block rewards (0.0003 SEVEN per block with real user transactions)
+- Bridge relay fee share (0.0004 BNB per settled trade)
+- Staking multiplier up to 3× based on SEVEN staked
 
 **Buy SEVEN to stake:** https://theseven.meme/spot/seven
 
@@ -53,8 +65,8 @@ There is no lock-up period for the initial validator cohort.
 
 ## [March 2026] — Mainnet Launch
 
-Seven Chain (ID: 70007) launched on mainnet. The genesis block was mined with 7 validators. The network has been running continuously since launch with zero unplanned downtime.
+Seven Chain (ID: 70007) launched on mainnet. The genesis block was mined and the network has been running continuously since launch with zero unplanned downtime.
 
 ---
 
-*Subscribe to this repo (Watch → All Activity) to get notified of future updates.*
+*Watch this repo (Watch → All Activity) to get notified of future updates.*
