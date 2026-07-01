@@ -213,6 +213,7 @@ Seven Chain is in early launch — apply as a genesis validator now at [theseven
 | [**seven-chain-node**](https://github.com/umairkhan2582/seven-chain-node) | Validator node client — seal blocks, earn SEVEN block rewards |
 | [**seven-chain-solver**](https://github.com/umairkhan2582/seven-chain-solver) | ← You are here — bridge solver client |
 | [**seven-creator-kit**](https://github.com/umairkhan2582/seven-creator-kit) | Token launch toolkit — deploy meme tokens, migrate from pump.fun/four.meme |
+| [**seven-gaming-sdk**](https://github.com/umairkhan2582/seven-gaming-sdk) | Gaming SDK — 1s finality on-chain games, session keys, Unreal Engine plugin |
 
 All repositories: [`github.com/topics/seven-chain`](https://github.com/topics/seven-chain)
 
