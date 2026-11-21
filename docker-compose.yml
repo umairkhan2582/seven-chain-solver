@@ -1,15 +1,20 @@
-version: "3.9"
-
 services:
   solver:
     build: .
     restart: unless-stopped
     volumes:
       - ./config.json:/app/config.json:ro
+    secrets:
+      - solver_private_key
     environment:
-      - NODE_ENV=production
+      NODE_ENV: production
+      SOLVER_PRIVATE_KEY_FILE: /run/secrets/solver_private_key
     logging:
-      driver: "json-file"
+      driver: json-file
       options:
         max-size: "10m"
         max-file: "3"
+
+secrets:
+  solver_private_key:
+    file: ./secrets/solver_private_key

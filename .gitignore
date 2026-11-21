@@ -56,3 +56,7 @@
   chaindata/
   geth/
   
+# Runtime config and solver-only signing secret
+config.json
+config.json.bak
+secrets/

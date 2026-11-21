@@ -3,23 +3,20 @@ import { ethers } from 'ethers';
 import { config } from '../config.js';
 import { logger } from '../logger.js';
 
-const SEVEN_RPC = config.rpcUrls['SEVEN'] ?? 'https://theseven.meme/api/seven-chain/jsonrpc';
+const SEVEN_RPC = config.rpcUrls['SEVEN'];
 
 /**
- * Token contract addresses on Seven Chain (chain ID 7777).
- * Operators can override these via config.tokenContracts.
+ * Wrapped-token addresses are deployment-specific and must be configured from
+ * independently verified chain data. Only the native SEVEN asset is implicit.
  */
-const DEFAULT_TOKEN_CONTRACTS: Record<string, string> = {
-  SBNB:  '0x0000000000000000000000000000000000000101',
-  SUSDT: '0x0000000000000000000000000000000000000102',
-};
-
-function tokenContracts(): Record<string, string> {
-  return { ...DEFAULT_TOKEN_CONTRACTS, ...(config.tokenContracts ?? {}) };
-}
-
 function resolveContract(token: string): string | null {
-  return tokenContracts()[token.toUpperCase()] ?? null;
+  const normalized = token.toUpperCase();
+  if (normalized === 'SEVEN') return null;
+  const contractAddress = config.tokenContracts?.[normalized];
+  if (!contractAddress || !ethers.isAddress(contractAddress)) {
+    throw new Error(`No verified token contract is configured for ${normalized}. Refusing to treat it as native SEVEN.`);
+  }
+  return contractAddress;
 }
 
 const ERC20_ABI = [
@@ -57,7 +54,8 @@ export async function getBlockNumber(): Promise<number | null> {
 /**
  * Check balance of a token on Seven Chain.
  * - SEVEN / native: uses eth_getBalance
- * - wBNB, wUSDT, other wrapped tokens: reads ERC-20 balanceOf
+ * - configured wrapped tokens: reads ERC-20 balanceOf
+ * - unknown tokens: fails closed
  */
 export async function checkBalance(token: string, address: string): Promise<number> {
   const tk = token.toUpperCase();
@@ -86,7 +84,8 @@ export async function checkBalance(token: string, address: string): Promise<numb
 /**
  * Send tokens on Seven Chain.
  * - SEVEN / native: plain ETH-style value transfer
- * - wBNB, wUSDT, other wrapped tokens: ERC-20 transfer() call
+ * - configured wrapped tokens: ERC-20 transfer() call
+ * - unknown tokens: fails closed
  * Returns the delivery tx hash.
  */
 export async function sendTokens(

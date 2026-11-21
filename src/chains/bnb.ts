@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import { config } from '../config.js';
 import { logger } from '../logger.js';
 
-const BSC_RPC    = config.rpcUrls['BNB'] ?? 'https://bsc-dataseed.binance.org/';
+const BSC_RPC    = config.rpcUrls['BNB'];
 const USDT_BEP20 = '0x55d398326f99059fF775485246999027B3197955';
 
 const ERC20_ABI = [
