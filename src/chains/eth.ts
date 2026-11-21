@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import { config } from '../config.js';
 import { logger } from '../logger.js';
 
-const ETH_RPC    = config.rpcUrls['ETH'] ?? 'https://ethereum.publicnode.com';
+const ETH_RPC    = config.rpcUrls['ETH'];
 const USDT_ERC20 = '0xdAC17F958D2ee523a2206206994597C13D831ec7'; // Mainnet USDT
 
 const ERC20_ABI = [
